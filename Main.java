@@ -5,14 +5,13 @@ public class Main{
     public static void main(String[] args){
         mainScreen();
     }
-
     // starting screen with 3 buttons
     public static void mainScreen(){
         JFrame screen = new JFrame("Main Menu");
         screen.setSize(1000, 500);
 
         JButton instructions = new JButton("Instructions");
-        instructions.setBounds(500, 100, 120, 30);
+        instructions.setBounds(440, 100, 120, 30);
         screen.add(instructions);
         instructions.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -21,7 +20,7 @@ public class Main{
             }
         });
         JButton play = new JButton("Play");
-        play.setBounds(500, 200, 120, 30);
+        play.setBounds(440, 200, 120, 30);
         screen.add(play);
         play.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -30,7 +29,7 @@ public class Main{
             }
         });
         JButton quit = new JButton("Quit");
-        quit.setBounds(500, 300, 120, 30);
+        quit.setBounds(440, 300, 120, 30);
         screen.add(quit);
         quit.addActionListener(new ActionListener(){
             public void actionPerformed (ActionEvent e){
@@ -39,6 +38,7 @@ public class Main{
         });
         screen.setLayout(null);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screen.setResizable(false);
         screen.setVisible(true);
     }
 
@@ -49,8 +49,15 @@ public class Main{
         JButton goBack = new JButton("Return to Main Menu");
         goBack.setBounds(10,10,150,20);
         ins_screen.add(goBack);
+        goBack.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                ins_screen.dispose();
+                mainScreen();
+            }
+        });
 
         ins_screen.setLayout(null);
+        ins_screen.setResizable(false);
         ins_screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ins_screen.setVisible(true);
     }
@@ -59,9 +66,16 @@ public class Main{
         game.setSize(1000,500);
         JButton goBack = new JButton("Return to Main Menu");
         goBack.setBounds(10,10,150,20);
-        game.add(goBack);
+        goBack.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                game.dispose();
+                mainScreen();
+            }
+        });
 
+        game.add(goBack);
         game.setLayout(null);
+        game.setResizable(false);
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.setVisible(true);
     }
