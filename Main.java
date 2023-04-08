@@ -16,16 +16,16 @@ public class Main{
         screen.add(instructions);
         instructions.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                screen.dispose();
                 instructionsScreen();
             }
         });
-
-
         JButton play = new JButton("Play");
         play.setBounds(500, 200, 120, 30);
         screen.add(play);
         play.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                screen.dispose();
                 gameScreen();
             }
         });
@@ -37,8 +37,6 @@ public class Main{
                 screen.dispose();
             }
         });
-
-    
         screen.setLayout(null);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         screen.setVisible(true);
@@ -59,6 +57,9 @@ public class Main{
     public static void gameScreen(){
         JFrame game = new JFrame("Game");
         game.setSize(1000,500);
+        JButton goBack = new JButton("Return to Main Menu");
+        goBack.setBounds(10,10,150,20);
+        game.add(goBack);
 
         game.setLayout(null);
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
